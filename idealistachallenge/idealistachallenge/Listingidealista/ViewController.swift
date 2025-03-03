@@ -6,9 +6,24 @@
 //
 
 import UIKit
+import Combine
+
+enum ListAction : String {
+    case refresh
+}
+
 
 class ViewController: UIViewController {
 
+    
+    
+    
+    private let vm = ListViewModel(networkService:NetworkManager())
+    
+    
+    private var cancellable = Set<AnyCancellable>()
+        
+    var action : ListAction = .refresh
     
     private var _myLbl:UILabel = {
         
@@ -42,6 +57,12 @@ class ViewController: UIViewController {
         
         //update the layouts
         addLayout()
+        
+        //bind the publishers
+        bind()
+        
+        //observe the publisers for any change
+        observe()
     }
 
     private func addLayout(){
@@ -58,5 +79,34 @@ class ViewController: UIViewController {
         _btnSubmit.heightAnchor.constraint(equalToConstant:30.0).isActive = true
     }
 
+    
+    //MARK: - Combine Methods
+    
+    private func bind(){
+        
+        //receive output from ViewModel
+        vm.output.sink { completion in
+            switch completion {
+            case .failure(let error):
+                print("Error == \(error.localizedDescription)")
+            case .finished:
+                print("Finished -> List Fetch")
+            }
+        } receiveValue: { elements in
+            print("Count == \(elements)")
+        }
+        
+        .store(in: &cancellable)
+        
+        
+        
+        //let send the refresh signal to ViewModel
+        vm.refreshSubject.send(.refresh)
+    }
+    
+    private func observe(){
+        
+    }
+    
 }
 
