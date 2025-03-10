@@ -15,7 +15,7 @@ import Foundation
 
 
 // MARK: - WelcomeElement
-struct ListElementIdealista: Codable {
+struct ListElementIdealista: Decodable {
     let propertyCode: String
     let thumbnail: String
     let floor: String

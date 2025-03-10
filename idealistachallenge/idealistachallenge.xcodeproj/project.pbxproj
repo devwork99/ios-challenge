@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4525335C2D75ED2C00B0F112 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4525335B2D75ED2C00B0F112 /* ListCell.swift */; };
 		45E45CCE2D7213BB00F8CE53 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E45CCD2D7213BB00F8CE53 /* NetworkManager.swift */; };
 		45F59B6E2D6DEF0A00E3EB69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F59B6D2D6DEF0A00E3EB69 /* AppDelegate.swift */; };
 		45F59B702D6DEF0A00E3EB69 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F59B6F2D6DEF0A00E3EB69 /* SceneDelegate.swift */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4525335B2D75ED2C00B0F112 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		452533682D75F8FA00B0F112 /* list_design.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = list_design.jpeg; sourceTree = "<group>"; };
 		45E45CCD2D7213BB00F8CE53 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		45F59B6A2D6DEF0A00E3EB69 /* idealistachallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idealistachallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F59B6D2D6DEF0A00E3EB69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +85,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4525335A2D75ED0500B0F112 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				4525335B2D75ED2C00B0F112 /* ListCell.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		452533672D75F8E000B0F112 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				452533682D75F8FA00B0F112 /* list_design.jpeg */,
+				45F59B7B2D6DEF0C00E3EB69 /* LaunchScreen.storyboard */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		45E45CCC2D7213A500F8CE53 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,7 +138,7 @@
 				45E45CCC2D7213A500F8CE53 /* NetworkManager */,
 				45F59BA02D6DF80500E3EB69 /* Listingidealista */,
 				45F59B792D6DEF0C00E3EB69 /* Assets.xcassets */,
-				45F59B7B2D6DEF0C00E3EB69 /* LaunchScreen.storyboard */,
+				452533672D75F8E000B0F112 /* Assets */,
 				45F59B7E2D6DEF0C00E3EB69 /* Info.plist */,
 				45F59B762D6DEF0A00E3EB69 /* idealistachallenge.xcdatamodeld */,
 			);
@@ -145,6 +165,7 @@
 		45F59BA02D6DF80500E3EB69 /* Listingidealista */ = {
 			isa = PBXGroup;
 			children = (
+				4525335A2D75ED0500B0F112 /* Subviews */,
 				45F59BA12D6DF83500E3EB69 /* ListModel.swift */,
 				45F59BA32D6DFADD00E3EB69 /* ListViewModel.swift */,
 				45F59B712D6DEF0A00E3EB69 /* ViewController.swift */,
@@ -168,6 +189,8 @@
 			dependencies = (
 			);
 			name = idealistachallenge;
+			packageProductDependencies = (
+			);
 			productName = idealistachallenge;
 			productReference = 45F59B6A2D6DEF0A00E3EB69 /* idealistachallenge.app */;
 			productType = "com.apple.product-type.application";
@@ -240,6 +263,8 @@
 				Base,
 			);
 			mainGroup = 45F59B612D6DEF0A00E3EB69;
+			packageReferences = (
+			);
 			productRefGroup = 45F59B6B2D6DEF0A00E3EB69 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -287,6 +312,7 @@
 				45F59BA42D6DFADD00E3EB69 /* ListViewModel.swift in Sources */,
 				45E45CCE2D7213BB00F8CE53 /* NetworkManager.swift in Sources */,
 				45F59B782D6DEF0A00E3EB69 /* idealistachallenge.xcdatamodeld in Sources */,
+				4525335C2D75ED2C00B0F112 /* ListCell.swift in Sources */,
 				45F59B702D6DEF0A00E3EB69 /* SceneDelegate.swift in Sources */,
 				45F59BA22D6DF83600E3EB69 /* ListModel.swift in Sources */,
 			);
@@ -463,6 +489,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -489,6 +516,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

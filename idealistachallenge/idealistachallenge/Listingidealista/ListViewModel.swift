@@ -22,24 +22,8 @@ class ListViewModel {
     private let cancellable = Set<AnyCancellable>()
     
     
-    
     let refreshSubject = PassthroughSubject<ListAction, Never>()
     
-    /*
-    var output : AnyPublisher <[ListElementIdealista], NetworkError> {
-       
-        inputSubject.flatMap { [weak self] _ in
-            
-            guard let self = self else { return }
-            
-            guard let url = URL(string: Endpoints().listing) else {
-                return Fail<Any, NetworkError>(error:NetworkError.badURL).eraseToAnyPublisher()
-            }
-            
-            self.networkManager.fetchData(url)
-        }
-    }
-    */
     
     // Output: Publisher emitting either data or an error
     var output: AnyPublisher<[ListElementIdealista], NetworkError> {
@@ -60,10 +44,7 @@ class ListViewModel {
             return Fail(error: NetworkError.badURL).eraseToAnyPublisher()
         }
         
-        //let temp = AnyPublisher <[ListElementIdealista], Error>(<#_#>)
-        
         return self.networkService.fetchData(url)
-        
     }
     
     
