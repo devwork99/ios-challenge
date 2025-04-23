@@ -40,19 +40,13 @@ class ListCell: UITableViewCell {
             _lblTitle.text = product?.description
             _lblCityName.text = product?.municipality
             _lblCounter.text =  "1/\(product?.multimedia.images.count ?? 0)"
-            //let counter =  "1/\(product?.multimedia.images.count ?? 0)"
-            //_lblCounter.setTitle(counter, for: .normal)
             _lblCityName.text = product?.district ?? ""
             _lblAmountPerMonth.text = "\(product?.price ?? 0)"  + " €/month"
-            //_lblGarrageIncluded.alpha = (product?.parkingSpace?.hasParkingSpace)? 1 : 0
             if product?.parkingSpace?.hasParkingSpace ?? false {
                 _lblGarrageIncluded.alpha = 1
             }
             _lbl4Beds.text = "\(product?.rooms ?? 0)" + " bed"
             _lblAreaSquareMeter.text = "\(product?.size ?? 0)" + " total m2"
-            //_lblPostDate.text = product.date
-            
-            
         }
     }
     
@@ -61,8 +55,8 @@ class ListCell: UITableViewCell {
     
     private let _contentView : UIView = {
         let some = UIView(frame:.zero)
-        some.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
-        some.layer.borderColor = UIColor.white.cgColor
+        some.backgroundColor = UIColor(named:"ListCellBackgroundColor")
+        some.layer.borderColor = UIColor.lightGray.cgColor
         some.layer.borderWidth = 0.3
         return some
     }()
@@ -73,28 +67,38 @@ class ListCell: UITableViewCell {
         some.backgroundColor = .clear
         some.image = UIImage(systemName:"photo")
         some.contentMode = .scaleAspectFill
-        //some.addCornorRadius(radius: 8.0)
         return some
     }()
     
     private let _btnGallery : UIButton = {
         let some = UIButton(type: .custom)
-        some.setImage(UIImage(systemName:"photo.stack"), for: .normal)
+        let img = UIImage(systemName:"photo.stack")!.withTintColor(UIColor(named:"ListGalleryBtnColor")!, renderingMode:.alwaysOriginal)
+        some.setImage(img, for: .normal)
         some.layer.borderWidth = 0.6
-        some.layer.borderColor = UIColor.white.cgColor
+        some.layer.borderColor = UIColor(named:"ListGalleryBtnColor")?.cgColor
         some.layer.cornerRadius = 5
         return some
     }()
     
     private let _btnMap : UIButton = {
         let some = UIButton(type: .custom)
-        some.setImage(UIImage(systemName:"mappin.circle"), for: .normal)
+        let img = UIImage(systemName:"mappin.circle")!.withTintColor(UIColor(named:"ListGalleryBtnColor")!, renderingMode:.alwaysOriginal)
+        some.setImage(img, for: .normal)
         some.layer.borderWidth = 0.6
-        some.layer.borderColor = UIColor.white.cgColor
+        some.layer.borderColor = UIColor(named:"ListGalleryBtnColor")?.cgColor
         some.layer.cornerRadius = 5
         return some
     }()
     
+    
+    private let _containderLblCounter : UIView = {
+        let some = UIView(frame:.zero)
+        some.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        some.layer.borderColor = UIColor.lightGray.cgColor
+        some.layer.borderWidth = 0.3
+        some.layer.cornerRadius = 5
+        return some
+    }()
     
     private let _lblCounter : UILabel = {
         let some = UILabel()
@@ -102,28 +106,10 @@ class ListCell: UITableViewCell {
         some.textColor = .white
         some.font = UIFont.systemFont(ofSize:12)
         some.textAlignment = .center
-        //some.backgroundColor = .lightGray
         some.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         some.layer.cornerRadius = 5
         return some
     }()
-    
-    
-    /*
-    private let _lblCounter : UIButton = {
-        let some = UIButton(type:.custom)
-        some.setTitle("1/25", for: .normal)
-        some.setTitleColor(.white, for: .normal)
-        some.titleEdgeInsets = UIEdgeInsets(top:10, left:20, bottom:10, right:20)
-        some.isUserInteractionEnabled = false
-        some.titleLabel?.font = UIFont.systemFont(ofSize:12)
-        some.contentVerticalAlignment = .top
-        some.contentHorizontalAlignment = .left
-        some.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        some.layer.cornerRadius = 5
-        return some
-    }()
-    */
     
     
     private let _lblTitle : UILabel = {
@@ -131,7 +117,8 @@ class ListCell: UITableViewCell {
         some.text = "Some title long text goes in here, Some title long text goes in here, "
         some.numberOfLines = 2
         some.font = UIFont.boldSystemFont(ofSize:16)
-        some.textColor = .white
+        //some.textColor = .white
+        some.textColor = UIColor(named:"ListTitleColor")
         return some
     }()
     
@@ -139,14 +126,16 @@ class ListCell: UITableViewCell {
         let some = UILabel()
         some.text = "Vila Real"
         some.font = UIFont.systemFont(ofSize:14)
-        some.textColor = .white
+        //some.textColor = .white
+        some.textColor = UIColor(named:"ListSubtitleColor")
         return some
     }()
     
     private let _lblAmountPerMonth : UILabel = {
         let some = UILabel()
         some.text = "1100 $/month"
-        some.textColor = .white
+        //some.textColor = .white
+        some.textColor = UIColor(named:"ListCostPerMonth")
         return some
     }()
     
@@ -164,7 +153,7 @@ class ListCell: UITableViewCell {
         let some = UILabel()
         some.text = "4 beds"
         some.textAlignment = .left
-        some.textColor = .white
+        some.textColor = UIColor(named:"ListCostPerMonth")
         some.font = UIFont.systemFont(ofSize:12)
         return some
     }()
@@ -173,7 +162,7 @@ class ListCell: UITableViewCell {
         let some = UILabel()
         some.text = "220 total m2"
         some.textAlignment = .left
-        some.textColor = .white
+        some.textColor = UIColor(named:"ListCostPerMonth")
         some.font = UIFont.systemFont(ofSize:12)
         return some
     }()
@@ -183,7 +172,7 @@ class ListCell: UITableViewCell {
         let some = UILabel()
         some.text = "01 Mar"
         some.textAlignment = .right
-        some.textColor = UIColor.brown.withAlphaComponent(0.5)
+        some.textColor = UIColor(named:"ListPostDateColor")
         some.font = UIFont.systemFont(ofSize:12)
         return some
     }()
@@ -193,26 +182,23 @@ class ListCell: UITableViewCell {
     private let _btnHeart : UIButton = {
         let some = UIButton(type: .custom)
         some.setBackgroundImage(UIImage(systemName:"heart"), for: .normal)
-        some.tintColor = UIColor.yellow
-        //288,148,122
-        //some.tintColor = _tintColor
+        some.tintColor = UIColor(named:"ListCellLowerIconsColor")
         return some
     }()
     
     private let _btnDelete : UIButton = {
         let some = UIButton(type: .custom)
         some.setBackgroundImage(UIImage(systemName:"arrow.up.bin"), for: .normal)
-        some.tintColor = UIColor.yellow
-        //some.tintColor = _tintColor
+        some.tintColor = UIColor(named:"ListCellLowerIconsColor")
         return some
     }()
     
     
     private let _btnText : UIButton = {
         let some = UIButton(type: .custom)
-        some.tintColor = UIColor.yellow
-        
+        some.tintColor = UIColor(named:"ListCellLowerIconsColor")
         some.setTitle("Contact", for: .normal)
+        some.setTitleColor(UIColor(named:"ListCellLowerIconsColor"), for:.normal)
         some.setImage(UIImage(systemName:"text.bubble.fill"), for: .normal)
         some.semanticContentAttribute = .forceRightToLeft
         return some
@@ -220,9 +206,10 @@ class ListCell: UITableViewCell {
     
     private let _btnCall : UIButton = {
         let some = UIButton(type: .custom)
-        some.tintColor = UIColor.yellow
+        some.tintColor = UIColor(named:"ListCellLowerIconsColor")
         
         some.setTitle("Call", for:.normal)
+        some.setTitleColor(UIColor(named:"ListCellLowerIconsColor"), for:.normal)
         some.setImage(UIImage(systemName:"phone"), for: .normal)
         some.semanticContentAttribute = .forceRightToLeft
         return some
@@ -238,7 +225,8 @@ class ListCell: UITableViewCell {
         _contentView.addSubview(_imgHeader)
         _contentView.addSubview(_btnGallery)
         _contentView.addSubview(_btnMap)
-        _contentView.addSubview(_lblCounter)
+        _contentView.addSubview(_containderLblCounter)
+        _containderLblCounter.addSubview(_lblCounter)
         
         _contentView.addSubview(_lblTitle)
         _contentView.addSubview(_lblCityName)
@@ -274,9 +262,16 @@ class ListCell: UITableViewCell {
         _imgHeader.topAnchor.constraint(equalTo:_contentView.topAnchor).isActive = true
         _imgHeader.heightAnchor.constraint(equalToConstant:UIScreen.main.bounds.size.height * 0.3).isActive = true
         
+        _containderLblCounter.translatesAutoresizingMaskIntoConstraints = false
+        _containderLblCounter.rightAnchor.constraint(equalTo: _contentView.rightAnchor, constant:-15).isActive = true
+        _containderLblCounter.bottomAnchor.constraint(equalTo: _imgHeader.bottomAnchor, constant: -15).isActive = true
+        
         _lblCounter.translatesAutoresizingMaskIntoConstraints = false
-        _lblCounter.rightAnchor.constraint(equalTo: _contentView.rightAnchor, constant:-15).isActive = true
-        _lblCounter.bottomAnchor.constraint(equalTo: _imgHeader.bottomAnchor, constant: -15).isActive = true
+        _lblCounter.rightAnchor.constraint(equalTo: _containderLblCounter.rightAnchor, constant:-10).isActive = true
+        _lblCounter.leftAnchor.constraint(equalTo: _containderLblCounter.leftAnchor, constant:10).isActive = true
+        _lblCounter.topAnchor.constraint(equalTo: _containderLblCounter.topAnchor, constant:5).isActive = true
+        _lblCounter.bottomAnchor.constraint(equalTo: _containderLblCounter.bottomAnchor, constant: -5).isActive = true
+        
         
         
         _btnGallery.translatesAutoresizingMaskIntoConstraints = false

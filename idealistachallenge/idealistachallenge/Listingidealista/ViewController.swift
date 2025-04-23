@@ -84,7 +84,7 @@ class ViewController: UIViewController {
 
     private func addLayout(){
         
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named:"ListBackgroundColor")
         
         _myLbl.translatesAutoresizingMaskIntoConstraints = false
         _myLbl.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive = true
