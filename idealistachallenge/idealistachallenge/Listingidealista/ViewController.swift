@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import SwiftUI
 //import SnapKit
 
 enum ListAction : String {
@@ -164,5 +165,13 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at:indexPath, animated: true)
+        showDetailScreen()
+    }
+}
+
+extension ViewController {
+    private func showDetailScreen(){
+        let detailView = UIHostingController(rootView: DetailView())
+        self.navigationController?.pushViewController(detailView, animated:true)
     }
 }

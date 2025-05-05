@@ -42,11 +42,11 @@ struct Features: Codable {
 
 // MARK: - Multimedia
 struct Multimedia: Codable {
-    let images: [Image]
+    let images: [ImageTag]
 }
 
 // MARK: - Image
-struct Image: Codable {
+struct ImageTag: Codable {
     let url: String
     let tag: String
 }
@@ -75,7 +75,7 @@ func getDummyModel()->ListElementIdealista{
     
     let price = PriceInfo(price: Price(amount:300, currencySuffix:"$"))
     
-    let multimedia = Multimedia(images: [Image(url:"www.healthy.com", tag:"Abc345")])
+    let multimedia = Multimedia(images: [ImageTag(url:"www.healthy.com", tag:"Abc345")])
     
     let item = ListElementIdealista(propertyCode:"abc", thumbnail:"abc", floor:"4", price:345, priceInfo:price, propertyType:"house", operation:"Not available", size:4, exterior: false, rooms: 3, bathrooms: 2, address:"rua da caravalho", province:"Vila Real", municipality: "No", district:"Vila Real", country:"PT", neighborhood:"Avenida", latitude:34.90, longitude: 35.87, description:"Some description goes in here", multimedia:multimedia, features:feature, parkingSpace:nil)
     

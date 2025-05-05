@@ -35,7 +35,7 @@ class ListViewModel {
             .eraseToAnyPublisher()
     }
     
-    private var cancellables = Set<AnyCancellable>()
+    //private var cancellables = Set<AnyCancellable>()
     
     
     // Fetch Data using NetworkManager
